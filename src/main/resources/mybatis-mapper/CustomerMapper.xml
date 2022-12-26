@@ -4,6 +4,10 @@
 <mapper namespace="com.cafe.admin.mapper.CustomerMapper">
 
     <select id="selectAdmin" parameterType="com.cafe.admin.dto.AdminDTO" resultType="com.cafe.admin.dto.AdminDTO">
+        select
+            id,
+            password
+        from admin where id = #{id} and password = #{password}
 
     </select>
 

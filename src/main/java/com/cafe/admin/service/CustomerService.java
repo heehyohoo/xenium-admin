@@ -21,9 +21,10 @@ public class CustomerService {
     //admin 계정이 있는지 확인 합니다. id와 password 가 일치 하면 admin이라는 이름으로 세션에 넣습니다.
     public String selectAdmin(AdminDTO adminDTO) {
         AdminDTO fetched = null;
+        fetched = repo.selectAdmin(adminDTO);
 
         if (fetched == null) {
-            return "";
+            return "failed";
         } else {
             session.setAttribute("admin", fetched);
             return "success";
