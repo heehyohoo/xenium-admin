@@ -12,10 +12,26 @@
     </select>
 
     <select id="selectAllCustomers" resultType="com.cafe.admin.dto.CustomerDTO">
+        select
+            id
+            ,pw
+            ,name
+            ,phone
+            ,address
+            ,email
+            ,gender
+            ,sns
+            ,birth
+            ,indate
+            ,ismem
+        from customer
 
     </select>
 
     <update id="customerStatus" parameterType="com.cafe.admin.dto.CustomerDTO">
+        update customer
+            set ismem = #{ismem}
+            where id = #{id}
 
     </update>
 

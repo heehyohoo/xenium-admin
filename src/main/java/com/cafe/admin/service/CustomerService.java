@@ -33,12 +33,17 @@ public class CustomerService {
 
     //고객 전체 리스트를 반환합니다.
     public List<CustomerDTO> selectAllCustomers() {
-        return null;
+        return repo.selectAllCustomers();
     }
 
     //고객 상태(ismem)을 Y나 N 으로 update 합니다.
     public String customerStatus(CustomerDTO customerDTO) {
-        return null;
+
+        if (repo.customerStatus(customerDTO) == 1) {
+            return "success";
+        }else{
+            return "failed";
+        }
     }
 
     //고객의 주문정보 전체를 반환합니다.

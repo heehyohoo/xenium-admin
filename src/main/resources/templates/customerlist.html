@@ -230,7 +230,6 @@
     function init(){
         $.ajax({
             url: "/customers",
-            dataType: "json",
             success: function (data) {
                 let con='';
                 for(let i=0;i<data.length;i++){
@@ -264,7 +263,6 @@
             url: "/customers",
             type: "PUT",
             data:{'id':id,'ismem':status},
-            dataType: "json",
             success: function (data) {
                 init();
             }
