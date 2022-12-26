@@ -36,6 +36,16 @@
     </update>
 
     <select id="selectOrderBook" resultType="com.cafe.admin.dto.OrderDTO">
+        select
+            id,
+            userId,
+            name,
+            phone,
+            address,
+            addressDetail,
+            indate
+        from orderbook
+
 
     </select>
 
