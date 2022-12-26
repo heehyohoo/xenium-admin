@@ -14,6 +14,8 @@ import java.util.UUID;
 @Service
 public class PictureService {
 
+    //이 클래스는 건들지 마세요.
+
     @Value("${site-file.upload-dir}")
     private String uploadDir;
 

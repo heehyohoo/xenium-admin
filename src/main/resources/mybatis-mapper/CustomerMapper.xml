@@ -4,50 +4,19 @@
 <mapper namespace="com.cafe.admin.mapper.CustomerMapper">
 
     <select id="selectAdmin" parameterType="com.cafe.admin.dto.AdminDTO" resultType="com.cafe.admin.dto.AdminDTO">
-        SELECT
-            id
-             ,password
-        FROM
-            admin
-        WHERE
-            id=#{id} and password=#{password}
+
     </select>
 
     <select id="selectAllCustomers" resultType="com.cafe.admin.dto.CustomerDTO">
-        SELECT
-            ID
-             ,PW
-             ,NAME
-             ,PHONE
-             ,ADDRESS
-             ,EMAIL
-             ,GENDER
-             ,SNS
-             ,BIRTH
-             ,INDATE
-             ,ISMEM
-        FROM CUSTOMER
 
     </select>
 
     <update id="customerStatus" parameterType="com.cafe.admin.dto.CustomerDTO">
-        UPDATE CUSTOMER set
-            ISMEM=#{ismem}
-        where ID=#{id}
+
     </update>
 
     <select id="selectOrderBook" resultType="com.cafe.admin.dto.OrderDTO">
-    SELECT
-        ID
-         ,USERID
-         ,NAME
-         ,PHONE
-         ,ADDRESS
-         ,ADDRESSDETAIL
-         ,INDATE
-    FROM
-        ORDERBOOK A
-    ORDER BY INDATE DESC
+
     </select>
 
     <select id="selectOrderDetail" parameterType="com.cafe.admin.dto.OrderDTO" resultType="com.cafe.admin.dto.OrderDTO">
