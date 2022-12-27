@@ -1,6 +1,7 @@
 package com.cafe.admin.service;
 
 import com.cafe.admin.dto.CategoryDTO;
+import com.cafe.admin.dto.ProductDTO;
 import com.cafe.admin.repository.CategoryRepository;
 import com.cafe.admin.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +27,8 @@ public class CategoryService {
     @Transactional
     public String deleteCategories(CategoryDTO categoryDTO) {
         int result = 0;
+        repo.deleteCatemaps(categoryDTO);
+        result = repo.deleteCategories(categoryDTO);
 
         if (result == 1) {
             return "success";
@@ -37,6 +40,7 @@ public class CategoryService {
     //받은 카테고리DTO를 insert 합니다. cateType은 "PRODUCT" 고정으로 insert 합니다.
     public String insertCategories(CategoryDTO categoryDTO) {
         int result = 0;
+        result = repo.insertCategories(categoryDTO);
 
         if (result == 1) {
             return "success";
@@ -49,6 +53,8 @@ public class CategoryService {
     //받은 카테고리DTO를 id기준으로 카테고리명을 update 합니다. cateType은 "PRODUCT" 고정입니다.
     public String updateCategories(CategoryDTO categoryDTO) {
         int result = 0;
+
+        result = repo.updateCategories(categoryDTO);
 
         if (result == 1) {
             return "success";

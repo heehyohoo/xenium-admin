@@ -17,12 +17,12 @@ public class ProductService {
 
     //전체 제품 리스트를 반환합니다.
     public List<ProductDTO> selectProducts() {
-        return null;
+        return repo.selectProducts();
     }
 
     //특정 제품을 반환합니다. id를 기준으로 반환합니다.
     public ProductDTO selectProduct(String id) {
-        return null;
+        return repo.selectProduct(id);
     }
 
     //카테고리 맵핑(CATEMAP) 테이블을 선 삭제 한 후, 제품(PRODUCT)를 삭제 합니다.
@@ -31,6 +31,8 @@ public class ProductService {
     @Transactional
     public String deleteProducts(ProductDTO productDTO) {
         int result = 0;
+        repo.deleteCatemaps(productDTO);
+        result = repo.deleteProducts(productDTO);
         if (result > 0) {
             return "success";
         } else {
@@ -44,6 +46,7 @@ public class ProductService {
     @Transactional
     public String updateProducts(ProductDTO productDTO) {
         int result = 0;
+        result = repo.updateProducts(productDTO);
         if (result > 0) {
             return "success";
         } else {
@@ -56,6 +59,9 @@ public class ProductService {
     @Transactional
     public String insertProducts(ProductDTO productDTO) {
         int result = 0;
+        repo.insertCatemaps(productDTO);
+        result = repo.insertProducts(productDTO);
+
         if (result > 0) {
             return "success";
         } else {
@@ -67,6 +73,7 @@ public class ProductService {
     //Swagger 문서를 참고하여 넣을 값 정리 합니다.
     public String insertSellTimes(SellTimeDTO sellTimeDTO) {
         int result = 0;
+        result = repo.insertSellTimes(sellTimeDTO);
         if (result == 1) {
             return "success";
         } else {
@@ -77,6 +84,7 @@ public class ProductService {
     //Swagger 문서를 참고하여 넣을 값 정리 합니다.
     public String deleteSellTimes(SellTimeDTO sellTimeDTO) {
         int result = 0;
+        result = repo.deleteSellTimes(sellTimeDTO);
         if (result == 1) {
             return "success";
         } else {
@@ -86,7 +94,7 @@ public class ProductService {
 
     //SellTime 전체를 반환합니다.
     public List<SellTimeDTO> selectSellTimes() {
-        return null;
+        return repo.selectSellTimes();
 
     }
 

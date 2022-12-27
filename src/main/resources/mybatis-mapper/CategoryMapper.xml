@@ -4,18 +4,33 @@
 <mapper namespace="com.cafe.admin.mapper.CategoryMapper">
 
     <select id="selectCategories" resultType="com.cafe.admin.dto.CategoryDTO">
+        select
+            id,
+            catename,
+            catetype,
+            indate
+        from category
 
     </select>
 
     <delete id="deleteCategories" parameterType="com.cafe.admin.dto.CategoryDTO">
+        delete from category
+        where id = #{id}
 
     </delete>
 
     <insert id="insertCategories" parameterType="com.cafe.admin.dto.CategoryDTO">
+        insert into category
+            (catename)
+            values
+            (#{cateName})
 
     </insert>
 
     <update id="updateCategories" parameterType="com.cafe.admin.dto.CategoryDTO">
+        update category
+            set catename = #{cateName}
+            where id = #{id}
 
     </update>
 

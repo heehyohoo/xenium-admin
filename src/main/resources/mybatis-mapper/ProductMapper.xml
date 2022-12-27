@@ -4,10 +4,37 @@
 <mapper namespace="com.cafe.admin.mapper.ProductMapper">
 
     <select id="selectProducts" resultType="com.cafe.admin.dto.ProductDTO">
+            select
+                id,
+                productname,
+                thumb,
+                status,
+                price,
+                amount,
+                summary,
+                content,
+                indate,
+                markettype,
+                ordernum
+            from product
 
     </select>
 
     <select id="selectProduct" resultType="String">
+        select
+            id,
+            productname,
+            thumb,
+            status,
+            price,
+            amount,
+            summary,
+            content,
+            indate,
+            markettype,
+            ordernum
+        from product where ID = #{id}
+
 
     </select>
 
@@ -62,6 +89,11 @@
 
 
     <select id="selectSellTimes" resultType="com.cafe.admin.dto.SellTimeDTO">
+        SELECT
+            starttime,
+            endtime,
+            indate
+        from selltime
 
 
     </select>
