@@ -20,7 +20,7 @@
 
     </select>
 
-    <select id="selectProduct" resultType="String">
+    <select id="selectProduct" resultType="com.cafe.admin.dto.ProductDTO">
         select
             id,
             productname,
